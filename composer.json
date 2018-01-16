@@ -1,0 +1,16 @@
+{
+    "name": "yidas/codeigniter-psr4-autoload",
+    "description": "CodeIgniter 3 PSR-4 Autoloader for Application",
+    "keywords": ["codeIgniter", "autoload", "PSR-4", "autoloader"],
+    "homepage": "https://github.com/yidas/codeigniter-psr4-autoload",
+    "type": "library",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/yidas/codeigniter-psr4-autoload/issues",
+        "source": "https://github.com/yidas/codeigniter-psr4-autoload"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "classmap": ["src/"]
+    }
+}
