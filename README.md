@@ -31,10 +31,10 @@ OUTLINE
 * [Requirements](#requirements)
 
 * [Installation](#installation)
-  - [1. Enabling Hooks](#1-enabling-hooks)
-  - [2. Adding a Hook](#2-adding-a-hook)
 
 * [Configuration](#configuration)
+  - [1. Enabling Hooks](#1-enabling-hooks)
+  - [2. Adding a Hook](#2-adding-a-hook)
 
 * [Usage](#usage)
   - [Extending Class](#extending-class)
