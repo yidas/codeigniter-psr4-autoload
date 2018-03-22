@@ -21,6 +21,32 @@ FEATURES
 
 - ***Whole Codeigniter application** directory structure support*
 
+---
+
+OUTLINE
+-------
+
+* [Demonstration](#demonstration)
+
+* [Requirements](#requirements)
+
+* [Installation](#installation)
+  - [1. Enabling Hooks](#1-enabling-hooks)
+  - [2. Adding a Hook](#2-adding-a-hook)
+
+* [Configuration](#configuration)
+
+* [Usage](#usage)
+  - [Extending Class](#extending-class)
+  - [Interface](#interface)
+  - [Trait](#trait)
+  - [Abstract](#abstract)
+  
+* [CONCEPTION](#conception)
+
+* [LIMITATIONS](#limitations)
+  
+---
 
 DEMONSTRATION
 -------------
