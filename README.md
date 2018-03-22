@@ -31,8 +31,8 @@ OUTLINE
 * [Requirements](#requirements)
 
 * [Installation](#installation)
-  - [1. Enabling Hooks](#1-enabling-hooks)
-  - [2. Adding a Hook](#2-adding-a-hook)
+  - [1. Enabling Hooks](#1-enabling-hooks)
+  - [2. Adding a Hook](#2-adding-a-hook)
 
 * [Configuration](#configuration)
 
@@ -42,9 +42,9 @@ OUTLINE
   - [Trait](#trait)
   - [Abstract](#abstract)
   
-* [CONCEPTION](#conception)
+* [Conception](#conception)
 
-* [LIMITATIONS](#limitations)
+* [Limitations](#limitations)
   
 ---
 
