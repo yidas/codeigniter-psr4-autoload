@@ -9,8 +9,9 @@
 CodeIgniter 3 PSR-4 Autoloader for Application
 
 [![Latest Stable Version](https://poser.pugx.org/yidas/codeigniter-psr4-autoload/v/stable?format=flat-square)](https://packagist.org/packages/yidas/codeigniter-psr4-autoload)
-[![Latest Unstable Version](https://poser.pugx.org/yidas/codeigniter-psr4-autoload/v/unstable?format=flat-square)](https://packagist.org/packages/yidas/codeigniter-psr4-autoload)
 [![License](https://poser.pugx.org/yidas/codeigniter-psr4-autoload/license?format=flat-square)](https://packagist.org/packages/yidas/codeigniter-psr4-autoload)
+
+This PSR-4 extension is collected into [yidas/codeigniter-pack](https://github.com/yidas/codeigniter-pack) which is a complete solution for Codeigniter framework.
 
 FEATURES
 --------
@@ -21,44 +22,47 @@ FEATURES
 
 - ***Whole Codeigniter application** directory structure support*
 
+---
+
+OUTLINE
+-------
+
+- [Demonstration](#demonstration)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Extending Class](#extending-class)
+  - [Interface](#interface)
+  - [Trait](#trait)
+  - [Abstract](#abstract)
+- [Conception](#conception)
+- [Limitations](#limitations)
+  
+---
 
 DEMONSTRATION
 -------------
 
-Autoload class files by PSR-4 namespace with `app` prefix in Codeigniter:
+By default, all PSR-4 namespace with `app` prefix in Codeigniter would relates to application directory.
+
+- The class `/application/libraries/MemberService.php` could be called by:
 
 ```php
-# /application/libraries/MemberService.php:
-\app\libraries\MemberService::auth();
+new \app\libraries\MemberService;
+```
 
-# /application/widgets/StatWidget.php:
-\app\widgets\StatWidget::run();
+- The class `/application/services/Process.php` with `static run()` method could be called by:
 
+```php
+\app\services\Process::run();
+```
+
+- Enable to extend or implement classes with standard way:
+
+```php
 class Blog_model extends app\models\BaseModel {}
-class Blog extends app\libraries\BaseController {}
+class Blog extends app\components\BaseController {}
 class Car implements app\contracts\CarInterface {}
-```
-
-More specifically, create a class with namespace refering to the file path `\application\helpers\`:
-
-```php
-<?php
-namespace app\helpers;
-
-class ArrayHelper
-{
-    public static function indexBy($input) {}
-}
-```
-
-Then call it in Controller action:
-
-```php
-<?php
-use app\helpers\ArrayHelper;
-...
-ArrayHelper::indexBy($input);
-\app\helpers\ArrayHelper::indexBy($input);
 ```
 
 ---
@@ -90,54 +94,36 @@ $config['composer_autoload'] = TRUE;
 
 ---
 
-CONFIGURATION
--------------
-
-After installation, you need to register it into Codeigniter system hook.
-
-### 1. Enabling Hooks
-
-The hooks feature can be globally enabled/disabled by setting the following item in the `application/config/config.php` file:
-
-```php
-$config['enable_hooks'] = TRUE;
-```
-
-### 2. Adding a Hook
-
-Hooks are defined in the `application/config/hooks.php` file, add above hook into it:
-
-```php
-/*
-  | -------------------------------------------------------------------
-  |  Auto-load All Classes with PSR-4
-  | -------------------------------------------------------------------
-  | After registering \yidas\Psr4Autoload, you could auto-load every
-  | classes in the whole Codeigniter application with `app` PSR-4 
-  | prefix by default, for example:
-  | # /application/libraries/MemberService.php:
-  | \app\libraries\MemberService::auth();
-  | # /application/widgets/StatWidget.php:
-  | \app\widgets\StatWidget::run();
-  | class Blog_model extends app\models\BaseModel {}
-  | class Blog extends app\libraries\BaseController {}
-  | class Car_model implements app\contracts\CarInterface {}
-  |
-  | The called class need to define namespace to support PSR-4 Autoload 
-  | only, which means it would not support CI_Loader anymore.
-  |
-  | @see https://github.com/yidas/codeigniter-psr4-autoload
- */
- 
-$hook['pre_system'][] = [new yidas\Psr4Autoload, 'register'];
-```
-
----
-
 USAGE
 -----
 
 After installation, the namespace prefix `app` is used for the current Codeigniter application directory.
+
+
+### Static Class
+
+
+Create a hepler with PSR-4 namespace with a new `helpers` folder under `application` directory, for eaxmple `\application\helpers\`:
+
+```php
+<?php
+namespace app\helpers;
+
+class ArrayHelper
+{
+    public static function indexBy($input) {}
+}
+```
+
+Then call it in Controller action:
+
+```php
+<?php
+use app\helpers\ArrayHelper;
+...
+ArrayHelper::indexBy($input);
+\app\helpers\ArrayHelper::indexBy($input);
+```
 
 ### Extending Class
 
@@ -163,7 +149,7 @@ class My_model extends app\models\BaseModel {}
 
 ### Interface
 
-Create a interface under `application` directory, for eaxmple `application/interface/CarInterface.php`:
+Create a interface with a new `interface` folder under `application` directory, for eaxmple `application/interface/CarInterface.php`:
 
 ```php
 <?php
@@ -190,7 +176,7 @@ Create a trait under `application` directory, for eaxmple `application/libraries
 
 ```php
 <?php
-namespace app\libraries;
+namespace app\components;
 
 trait LogTrait {}
 ```
@@ -200,7 +186,7 @@ Then inject the trait into a class, for eaxmple `application/controller/Blog.php
 ```php
 class Blog extends CI_Controller
 {
-    use \app\libraries\LogTrait;
+    use \app\components\LogTrait;
 }
 ```
 
@@ -210,7 +196,7 @@ Create an abstract under `application` directory, for eaxmple `application/libra
 
 ```php
 <?php
-namespace app\libraries;
+namespace app\components;
 
 abstract class BaseController extends \CI_Controller {}
 ```
@@ -218,7 +204,7 @@ abstract class BaseController extends \CI_Controller {}
 Then define a class to extend above abstract class, for eaxmple `application/libraries/BaseController.php`:
 
 ```php
-class Blog extends app\libraries\BaseController {}
+class Blog extends app\components\BaseController {}
 ```
 
 ---
