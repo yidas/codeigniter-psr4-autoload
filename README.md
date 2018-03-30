@@ -199,7 +199,7 @@ class My_model extends app\models\BaseModel {}
 
 ### Interface
 
-Create a interface with a new `helpers` folder under `application` directory, for eaxmple `application/interface/CarInterface.php`:
+Create a interface with a new `interface` folder under `application` directory, for eaxmple `application/interface/CarInterface.php`:
 
 ```php
 <?php
