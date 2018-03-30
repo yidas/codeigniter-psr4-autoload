@@ -55,36 +55,20 @@ Autoload class files by PSR-4 namespace with `app` prefix in Codeigniter:
 
 ```php
 # /application/libraries/MemberService.php:
-\app\libraries\MemberService::auth();
+\app\libraries\MemberService::init();
+```
 
+```php
 # /application/widgets/StatWidget.php:
 \app\widgets\StatWidget::run();
+```
 
+Enable to extend or implement classes with standard way:
+
+```php
 class Blog_model extends app\models\BaseModel {}
 class Blog extends app\libraries\BaseController {}
 class Car implements app\contracts\CarInterface {}
-```
-
-More specifically, create a class with namespace refering to the file path `\application\helpers\`:
-
-```php
-<?php
-namespace app\helpers;
-
-class ArrayHelper
-{
-    public static function indexBy($input) {}
-}
-```
-
-Then call it in Controller action:
-
-```php
-<?php
-use app\helpers\ArrayHelper;
-...
-ArrayHelper::indexBy($input);
-\app\helpers\ArrayHelper::indexBy($input);
 ```
 
 ---
@@ -165,6 +149,32 @@ USAGE
 
 After installation, the namespace prefix `app` is used for the current Codeigniter application directory.
 
+
+### Static Class
+
+
+Create a hepler with PSR-4 namespace with a new `helpers` folder under `application` directory, for eaxmple `\application\helpers\`:
+
+```php
+<?php
+namespace app\helpers;
+
+class ArrayHelper
+{
+    public static function indexBy($input) {}
+}
+```
+
+Then call it in Controller action:
+
+```php
+<?php
+use app\helpers\ArrayHelper;
+...
+ArrayHelper::indexBy($input);
+\app\helpers\ArrayHelper::indexBy($input);
+```
+
 ### Extending Class
 
 Create a class with PSR-4 namespace under `application` directory, for eaxmple `application/model/BaseModel.php`:
@@ -189,7 +199,7 @@ class My_model extends app\models\BaseModel {}
 
 ### Interface
 
-Create a interface under `application` directory, for eaxmple `application/interface/CarInterface.php`:
+Create a interface with a new `helpers` folder under `application` directory, for eaxmple `application/interface/CarInterface.php`:
 
 ```php
 <?php
