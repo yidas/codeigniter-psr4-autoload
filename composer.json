@@ -10,6 +10,9 @@
         "source": "https://github.com/yidas/codeigniter-psr4-autoload"
     },
     "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.3.0"
+    },
     "autoload": {
         "classmap": ["src/"]
     }
