@@ -121,25 +121,19 @@ Hooks are defined in the `application/config/hooks.php` file, add above hook int
 
 ```php
 /*
-  | -------------------------------------------------------------------
-  |  Auto-load All Classes with PSR-4
-  | -------------------------------------------------------------------
-  | After registering \yidas\Psr4Autoload, you could auto-load every
-  | classes in the whole Codeigniter application with `app` PSR-4 
-  | prefix by default, for example:
-  | # /application/libraries/MemberService.php:
-  | \app\libraries\MemberService::auth();
-  | # /application/widgets/StatWidget.php:
-  | \app\widgets\StatWidget::run();
-  | class Blog_model extends app\models\BaseModel {}
-  | class Blog extends app\libraries\BaseController {}
-  | class Car_model implements app\contracts\CarInterface {}
-  |
-  | The called class need to define namespace to support PSR-4 Autoload 
-  | only, which means it would not support CI_Loader anymore.
-  |
-  | @see https://github.com/yidas/codeigniter-psr4-autoload
- */
+| -------------------------------------------------------------------
+| CodeIgniter 3 PSR-4 Autoloader for Application
+| -------------------------------------------------------------------
+| By default, all PSR-4 namespace with `app` prefix in Codeigniter would relates
+| to application directory.
+| - The class `/application/libraries/MemberService.php` could be called by:
+| ```php
+| new \app\libraries\MemberService;
+| ```
+| 
+| @filesource yidas/codeigniter-psr4-autoload
+| @see        https://github.com/yidas/codeigniter-psr4-autoload
+*/
  
 $hook['pre_system'][] = [new yidas\Psr4Autoload, 'register'];
 ```
