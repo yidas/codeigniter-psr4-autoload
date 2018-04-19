@@ -51,19 +51,21 @@ OUTLINE
 DEMONSTRATION
 -------------
 
-Autoload class files by PSR-4 namespace with `app` prefix in Codeigniter:
+By default, all PSR-4 namespace with `app` prefix in Codeigniter would relates to application directory.
+
+- The class `/application/libraries/MemberService.php` could be called by:
 
 ```php
-# /application/libraries/MemberService.php:
-\app\libraries\MemberService::init();
+new \app\libraries\MemberService;
 ```
 
+- The class `/application/widgets/StatWidget.php` with `static run()` method could be called by:
+
 ```php
-# /application/widgets/StatWidget.php:
 \app\widgets\StatWidget::run();
 ```
 
-Enable to extend or implement classes with standard way:
+- Enable to extend or implement classes with standard way:
 
 ```php
 class Blog_model extends app\models\BaseModel {}
