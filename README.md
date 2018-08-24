@@ -12,6 +12,8 @@ CodeIgniter 3 PSR-4 Autoloader for Application
 [![Latest Unstable Version](https://poser.pugx.org/yidas/codeigniter-psr4-autoload/v/unstable?format=flat-square)](https://packagist.org/packages/yidas/codeigniter-psr4-autoload)
 [![License](https://poser.pugx.org/yidas/codeigniter-psr4-autoload/license?format=flat-square)](https://packagist.org/packages/yidas/codeigniter-psr4-autoload)
 
+This PSR-4 extension is collected into [yidas/codeigniter-pack](https://github.com/yidas/codeigniter-pack) which is a complete solution for Codeigniter framework.
+
 FEATURES
 --------
 
