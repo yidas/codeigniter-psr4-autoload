@@ -55,17 +55,17 @@ By default, all PSR-4 namespace with `app` prefix in Codeigniter would relates t
 new \app\libraries\MemberService;
 ```
 
-- The class `/application/widgets/StatWidget.php` with `static run()` method could be called by:
+- The class `/application/services/Process.php` with `static run()` method could be called by:
 
 ```php
-\app\widgets\StatWidget::run();
+\app\services\Process::run();
 ```
 
 - Enable to extend or implement classes with standard way:
 
 ```php
 class Blog_model extends app\models\BaseModel {}
-class Blog extends app\libraries\BaseController {}
+class Blog extends app\components\BaseController {}
 class Car implements app\contracts\CarInterface {}
 ```
 
@@ -218,7 +218,7 @@ Create a trait under `application` directory, for eaxmple `application/libraries
 
 ```php
 <?php
-namespace app\libraries;
+namespace app\components;
 
 trait LogTrait {}
 ```
@@ -228,7 +228,7 @@ Then inject the trait into a class, for eaxmple `application/controller/Blog.php
 ```php
 class Blog extends CI_Controller
 {
-    use \app\libraries\LogTrait;
+    use \app\components\LogTrait;
 }
 ```
 
@@ -238,7 +238,7 @@ Create an abstract under `application` directory, for eaxmple `application/libra
 
 ```php
 <?php
-namespace app\libraries;
+namespace app\components;
 
 abstract class BaseController extends \CI_Controller {}
 ```
@@ -246,7 +246,7 @@ abstract class BaseController extends \CI_Controller {}
 Then define a class to extend above abstract class, for eaxmple `application/libraries/BaseController.php`:
 
 ```php
-class Blog extends app\libraries\BaseController {}
+class Blog extends app\components\BaseController {}
 ```
 
 ---
