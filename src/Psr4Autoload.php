@@ -6,7 +6,7 @@ namespace yidas;
  * PSR-4 Autoloader for Codeiginiter 3 application
  * 
  * @author  Nick Tsai <myintaer@gmail.com>
- * @version 1.0.0
+ * @since 1.0.0
  * @see     https://github.com/yidas/codeigniter-psr4-autoload
  */
 class Psr4Autoload
